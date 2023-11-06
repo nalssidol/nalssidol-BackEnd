@@ -49,8 +49,12 @@ INSTALLED_APPS = [
     
     "corsheaders",
 
+<<<<<<< HEAD
+    "rest_framework",
+=======
     "nalssi",
     "location"
+>>>>>>> 0f5ce6151eefd0c9a0de39937a91b26e128e2b3c
 
 ]
 
