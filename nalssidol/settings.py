@@ -47,11 +47,10 @@ INSTALLED_APPS = [
     
     "corsheaders",
 
+    "rest_framework",
+  
     "nalssi",
     "location",
-
-    "rest_framework",
-
 ]
 
 MIDDLEWARE = [
