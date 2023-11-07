@@ -27,15 +27,11 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "http://127.0.0.1:8000",
-    "http://localhost:8000",
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://43.202.210.59:5173",
-    "http://43.202.210.59",
-    "http://nalssidol.site",
+    "127.0.0.1",
+    "localhost",
+    "43.202.210.59",
+    "nalssidol.site",
 ]
-
 
 # Application definition
 
@@ -49,12 +45,9 @@ INSTALLED_APPS = [
     
     "corsheaders",
 
-<<<<<<< HEAD
     "rest_framework",
-=======
     "nalssi",
-    "location"
->>>>>>> 0f5ce6151eefd0c9a0de39937a91b26e128e2b3c
+    "location",
 
 ]
 
