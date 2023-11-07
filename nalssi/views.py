@@ -34,45 +34,65 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
         
         # 상의 추천
         if temperature >= -30 and temperature <= 4:
-            upper = "니트, 맨투맨, 후드"
+            top = "니트, 맨투맨, 후드"
         elif temperature > 4 and temperature <= 8:
-            upper = "니트, 맨투맨, 후드"
+            top = "니트, 맨투맨, 후드"
         elif temperature > 8 and temperature <= 11:
-            upper = "니트, 맨투맨, 후드"
+            top = "니트, 맨투맨, 후드"
         elif temperature > 11 and temperature <= 16:
-            upper = "니트, 맨투맨, 후드"
+            top = "니트, 맨투맨, 후드"
         elif temperature > 16 and temperature <= 19:
-            upper = "니트, 맨투맨, 후드"
+            top = "니트, 맨투맨, 후드"
         elif temperature > 19 and temperature <= 22:
-            upper = "블라우스, 긴팔 티"
+            top = "블라우스, 긴팔 티"
         elif temperature > 22 and temperature <= 27:
-            upper = "반팔, 얇은 셔츠"
+            top = "반팔, 얇은 셔츠"
         elif temperature > 28 and temperature <= 50:
-            upper = "민소매, 반팔"
+            top = "민소매, 반팔"
         else:
-            upper = "Unknown"
+            top = "Unknown"
 
         # 하의 추천
         if temperature >= -30 and temperature <= 4:
-            lower = "기모바지"
+            pants = "기모바지"
         elif temperature > 4 and temperature <= 8:
-            lower = "기모바지"
+            pants = "기모바지"
         elif temperature > 8 and temperature <= 11:
-            lower = "기모바지"
+            pants = "기모바지"
         elif temperature > 11 and temperature <= 16:
-            lower = "청바지, 스타킹"
+            pants = "청바지, 스타킹"
         elif temperature > 16 and temperature <= 19:
-            lower = "긴바지"
+            pants = "긴바지"
         elif temperature > 19 and temperature <= 22:
-            lower = "면바지, 슬렉스"
+            pants = "면바지, 슬렉스"
         elif temperature > 22 and temperature <= 27:
-            lower = "반바지, 면바지"
+            pants = "반바지, 면바지"
         elif temperature > 28 and temperature <= 50:
-            lower = "반바지, 짧은 치마"
+            pants = "반바지, 짧은 치마"
         else:
-            lower = "Unknown"
+            pants = "Unknown"
         
-        data = {"temperature": temperature, "outer": outer, "upper":upper, "lower":lower}
+        # 온도에 따른 돌 사진 불러오기
+        if temperature >= -30 and temperature <= 4:
+            dol = "static/img/dol1.png"
+        elif temperature > 4 and temperature <= 8:
+            dol = "static/img/dol1.png"
+        elif temperature > 8 and temperature <= 11:
+            dol = "static/img/dol1.png"
+        elif temperature > 11 and temperature <= 16:
+            dol = "static/img/dol1.png"
+        elif temperature > 16 and temperature <= 19:
+            dol = "static/img/dol1.png"
+        elif temperature > 19 and temperature <= 22:
+            dol = "static/img/dol1.png"
+        elif temperature > 22 and temperature <= 27:
+            dol = "static/img/dol1.png"
+        elif temperature > 28 and temperature <= 50:
+            dol = "static/img/dol1.png"
+        else:
+            dol = "Unknown"
+
+        data = {"temperature": temperature, "outer": outer, "top":top, "pants":pants, "dol":dol}
         
         return Response(data)
     except ValueError:
