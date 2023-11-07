@@ -34,7 +34,6 @@ ALLOWED_HOSTS = [
     "nalssidol.site",
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -48,7 +47,7 @@ INSTALLED_APPS = [
     "corsheaders",
 
     "rest_framework",
-  
+
     "nalssi",
     "location",
 ]
