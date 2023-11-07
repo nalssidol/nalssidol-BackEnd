@@ -4,5 +4,5 @@ from . import views
 
 app_name = "nalssi"
 urlpatterns = [
-    path('api/temperature/<path:temperature>/', views.temperature_grade),
+    path('temperature/<path:temperature>/', views.temperature_recommend),
 ]
