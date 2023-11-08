@@ -79,21 +79,21 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
         
         # 온도에 따른 돌 사진 불러오기
         if temperature >= -30 and temperature <= 4:
-            dol = "static/img/5.png"
+            dol = "/static/img/5.png"
         elif temperature > 4 and temperature <= 8:
-            dol = "static/img/6.png"
+            dol = "/static/img/6.png"
         elif temperature > 8 and temperature <= 11:
-            dol = "static/img/10.png"
+            dol = "/static/img/10.png"
         elif temperature > 11 and temperature <= 16:
-            dol = "static/img/12.png"
+            dol = "/static/img/12.png"
         elif temperature > 16 and temperature <= 19:
-            dol = "static/img/17.png"
+            dol = "/static/img/17.png"
         elif temperature > 19 and temperature <= 22:
-            dol = "static/img/20.png"
+            dol = "/static/img/20.png"
         elif temperature > 22 and temperature <= 27:
-            dol = "static/img/23.png"
+            dol = "/static/img/23.png"
         elif temperature > 28 and temperature <= 50:
-            dol = "static/img/28.png"
+            dol = "/static/img/28.png"
         else:
             dol = "Unknown"
 
