@@ -7,6 +7,11 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework.decorators import action, api_view
 from rest_framework.views import APIView
 
+from django.http import FileResponse, JsonResponse
+from django.conf import settings
+
+import os
+import base64
 
 @api_view(['GET'])
 def temperature_recommend(request, temperature): # temperature 파라미터 프론트에서 가져오기
@@ -73,27 +78,41 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
             pants = "Unknown"
         
         # 온도에 따른 돌 사진 불러오기
+        image_name = None
         if temperature >= -30 and temperature <= 4:
-            dol = "static/img/dol1.png"
+            image_name = "5.png"
         elif temperature > 4 and temperature <= 8:
-            dol = "static/img/dol1.png"
+            image_name = "6.png"
         elif temperature > 8 and temperature <= 11:
-            dol = "static/img/dol1.png"
+            image_name = "10.png"
         elif temperature > 11 and temperature <= 16:
-            dol = "static/img/dol1.png"
+            image_name = "12.png"
         elif temperature > 16 and temperature <= 19:
-            dol = "static/img/dol1.png"
+            image_name = "17.png"
         elif temperature > 19 and temperature <= 22:
-            dol = "static/img/dol1.png"
+            image_name = "20.png"
         elif temperature > 22 and temperature <= 27:
-            dol = "static/img/dol1.png"
+            image_name = "23.png"
         elif temperature > 28 and temperature <= 50:
-            dol = "static/img/dol1.png"
+            image_name = "28.png"
         else:
             dol = "Unknown"
 
-        data = {"temperature": temperature, "outer": outer, "top":top, "pants":pants, "dol":dol}
-        
+        data = {
+            "temperature": temperature,
+            "outer": outer,
+            "top": top,
+            "pants": pants,
+        }
+
+        if image_name:
+            image_url = request.build_absolute_uri(f'{settings.STATIC_URL}img/{image_name}')
+            data["dol"] = image_url
+        else:
+            data["dol"] = "No image available for this temperature range"
+
         return Response(data)
+
+
     except ValueError:
         return Response({"error": "Invalid temperature value"}, status=400)
