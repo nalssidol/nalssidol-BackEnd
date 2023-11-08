@@ -17,6 +17,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#config = Config()
 config = AutoConfig(search_path=os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = config('SECRET_KEY')
 
@@ -33,6 +34,14 @@ ALLOWED_HOSTS = [
     "localhost",
     "43.202.210.59",
     "nalssidol.site",
+    "http://127.0.0.1",
+    "http://localhost",
+    "http://43.202.210.59",
+    "http://nalssidol.site",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
+    "http://localhost:5173",
+    "http://43.202.210.59:5173",
 ]
 
 # Application definition
