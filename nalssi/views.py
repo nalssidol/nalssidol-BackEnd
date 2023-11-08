@@ -78,23 +78,22 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
             pants = "Unknown"
         
         # 온도에 따른 돌 사진 불러오기
-        image_name = None
         if temperature >= -30 and temperature <= 4:
-            image_name = "5.png"
+            dol = "static/img/5.png"
         elif temperature > 4 and temperature <= 8:
-            image_name = "6.png"
+            dol = "static/img/6.png"
         elif temperature > 8 and temperature <= 11:
-            image_name = "10.png"
+            dol = "static/img/10.png"
         elif temperature > 11 and temperature <= 16:
-            image_name = "12.png"
+            dol = "static/img/12.png"
         elif temperature > 16 and temperature <= 19:
-            image_name = "17.png"
+            dol = "static/img/17.png"
         elif temperature > 19 and temperature <= 22:
-            image_name = "20.png"
+            dol = "static/img/20.png"
         elif temperature > 22 and temperature <= 27:
-            image_name = "23.png"
+            dol = "static/img/23.png"
         elif temperature > 28 and temperature <= 50:
-            image_name = "28.png"
+            dol = "static/img/28.png"
         else:
             dol = "Unknown"
 
@@ -103,13 +102,8 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
             "outer": outer,
             "top": top,
             "pants": pants,
+            "dol" : dol
         }
-
-        if image_name:
-            image_url = request.build_absolute_uri(f'{settings.STATIC_URL}img/{image_name}')
-            data["dol"] = image_url
-        else:
-            data["dol"] = "No image available for this temperature range"
 
         return Response(data)
 
