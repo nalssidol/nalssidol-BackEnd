@@ -107,6 +107,5 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
 
         return Response(data)
 
-
     except ValueError:
         return Response({"error": "Invalid temperature value"}, status=400)
