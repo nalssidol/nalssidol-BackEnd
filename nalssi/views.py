@@ -104,7 +104,6 @@ def temperature_recommend(request, temperature): # temperature 파라미터 프�
             "pants": pants,
             "dol" : dol
         }
-
         return Response(data)
 
     except ValueError:
