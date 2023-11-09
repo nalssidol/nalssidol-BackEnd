@@ -28,7 +28,7 @@ def location_data(request):
     if city_name is not None and gu_name is not None:
         nx, ny = get_nxny(city_name, gu_name)
         if nx is not None and ny is not None:
-            return Response({'nx': nx, 'ny': ny})
+            return Response({'city': city_name, 'gu': gu_name,'nx': nx, 'ny': ny})
         else:
             return Response({'error': '데이터가 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
     else:
