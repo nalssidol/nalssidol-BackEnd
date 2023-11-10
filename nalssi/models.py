@@ -11,3 +11,5 @@ class Weather(models.Model):
     top = models.CharField(max_length=50)
     # 하의
     pants = models.CharField(max_length=50)
+    # 돌돌이 이미지
+    dol = models.ImageField(upload_to='weather_images/', null=True, blank=True)

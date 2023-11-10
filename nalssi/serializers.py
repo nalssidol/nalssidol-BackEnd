@@ -9,3 +9,5 @@ class WeatherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Weather
         fields = '__all__'
+    
+    dol = serializers.ImageField(use_url=True, required=False)
